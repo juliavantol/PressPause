@@ -1,0 +1,302 @@
+:root {
+    --red: #CF2500;
+    --boxshadow: 0px 1px black;
+  }
+
+
+#input_track_label {
+    font-weight: 650;
+    text-shadow: 1px 1px black;
+}
+
+
+#audio_track_sidebar {
+    background-color: #141414;
+    position: relative;
+    padding-bottom: 20px;
+    height: auto;
+    width: 100%;
+    font-size: 11px;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    color:white;
+    text-align: center;
+    overflow-x: hidden;
+    box-shadow: 0px 0px 2px 1px black;
+}
+
+#audio_track_player {
+
+    display:none;
+}
+
+#slider_container {
+    padding: 10px;
+    display: none;
+}
+
+/* The slider itself */
+#test-progress {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    height: 3px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    width:80%;
+  }
+
+  /* Mouse-over effects */
+  #test-progress:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  #test-progress::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    border-radius: 50%;
+    width: 12px; /* Set a specific slider handle width */
+    height: 12px; /* Slider handle height */
+    background: red; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+
+  #test-progress::-moz-range-thumb {
+    width: 12px; /* Set a specific slider handle width */
+    height: 12px; /* Slider handle height */
+    border-radius: 50%;
+    background: red; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+
+
+
+
+
+  #volume_range_slider {
+    -webkit-appearance: none;
+    width: 100px;
+    height: 4px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, rgba(255,0,0) 30%, rgba(176,177,174) 30%);
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-top: 9px;
+  }
+
+  #volume_range_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: red;
+    cursor: pointer;
+  }
+
+#volume_range_slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: red;
+    cursor: pointer;
+  }
+
+
+.timing_content {
+    color:white;
+}
+
+/* All containers */
+#input_container {
+    margin-top: 20px;
+    margin-left: 10px;
+    color: var(--red);
+    display: inline-block;
+    border-radius: 8px;
+}
+
+#intro_container {
+    display: none;
+    width: 100%;
+
+}
+
+#start_wrapper {
+    display:none;
+    text-align: center;
+    font-weight: 650;
+}
+
+#recover_wrapper {
+    display:none;
+    font-weight: 550;
+}
+
+#select_track_form {
+    margin-bottom: 14px;
+}
+
+#big_wrapper {
+    max-width: 100%;
+    display:none;
+    margin-top: 10px;
+    text-align: center;
+    padding: 5px;
+
+}
+
+#control_wrapper {
+    width: 100%;
+}
+
+
+.track_play_button {
+    background: transparent;
+    border: none;
+    outline: none;
+    text-shadow: 0px 0px 3px white;
+    width: 12px;
+    height: 12px;
+}
+
+.testcontainer {
+    margin-top: 10px;
+}
+
+
+#timing_container {
+    margin-top: 6px;
+    height: 20px;
+}
+
+#track_player_volumecontrol {
+
+    height: 30px;
+    margin-top: 2px;
+}
+
+
+@media screen and (min-width : 901px) {
+    #test-progress {
+        width: 80%;
+    }
+    #track_play_button {
+        /*margin-top: -7px;*/
+        margin-top:0px;
+    }
+}
+
+@media screen and (max-width : 900px) {
+    #test-progress {
+        width: 65%;
+    }
+
+    #track_play_button {
+        margin-top: -6px;
+    }
+}
+
+@media screen and (max-width : 700px) {
+
+    #track_play_button {
+        margin-top: 0px;
+    }
+}
+
+@media screen and (max-width : 515px) {
+    #track_play_button {
+        margin-top: 3px;
+    }
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+}
+
+.inputfile + label {
+    font-size: 1.10em;
+    font-weight: 500;
+    color: white;
+    background-color: var(--red);
+    padding: 4px;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-shadow: 0px 0px 3px 0px var(--red);
+    border-radius: 2px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: var(--red);
+}
+
+
+.inputfile + label {
+	cursor: pointer;
+}
+
+#volume_btn {
+    margin-top: 1.5px;
+    padding-left: 5px;
+    position: absolute;
+}
+
+.label_btn {
+    font-size: 1.00em;
+    font-weight: 700;
+    color: white;
+    background-color: #DF474B;
+    padding: 4px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-shadow: 0px 0px 3px 0px #DF474B;
+    border-radius: 2px;
+}
+
+#step2 {
+    display: none;
+}
+
+#step3 {
+    display: none;
+}
+
+.start_text {
+    font-size: 11px;
+}
+
+#recover_menu {
+    display: none;
+    padding-bottom: 5px;
+}
+
+.custom_button_style {
+    font-size: 11px;
+    font-weight: 400;
+    color: white;
+    background-color: var(--red);
+    padding: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 15px;
+    outline: none;
+    font-weight: 650;
+    text-shadow: 1px 1px black;
+    border-radius: 12px;
+}
+
+.text_instructions {
+    padding-bottom: 12px;
+    text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
+
+}
+
+#save_track_form {
+    padding-top: 7px;
+    color: black;
+    font-weight: normal;
+}
