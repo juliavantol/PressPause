@@ -1,84 +1,63 @@
 :root {
     --red: #CF2500;
+    --grey: #d3d3d3;
+    --lightred: #E40000;
     --boxshadow: 0px 1px black;
   }
-
 
 #input_track_label {
     font-weight: 650;
     text-shadow: 1px 1px black;
 }
 
-
 #audio_track_sidebar {
     background-color: #141414;
     position: relative;
     padding-bottom: 20px;
     height: auto;
-    width: 100%;
     font-size: 11px;
     font-family: Helvetica, sans-serif;
     font-weight: bold;
-    color:white;
-    text-align: center;
     overflow-x: hidden;
-    box-shadow: 0px 0px 2px 1px black;
-}
-
-#audio_track_player {
-
-    display:none;
-}
-
-#slider_container {
-    padding: 10px;
-    display: none;
 }
 
 /* The slider itself */
-#test-progress {
+#custom_progressbar_audio {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
-    height: 3px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
+    height: 3px; 
+    border-radius: 5px;
+    background: #d3d3d3; 
+    outline: none; 
     width:80%;
   }
 
-  /* Mouse-over effects */
-  #test-progress:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-  }
-
   /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-  #test-progress::-webkit-slider-thumb {
+  #custom_progressbar_audio::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
     border-radius: 50%;
     width: 12px; /* Set a specific slider handle width */
     height: 12px; /* Slider handle height */
-    background: red; /* Green background */
+    background: var(--lightred);
     cursor: pointer; /* Cursor on hover */
   }
 
-  #test-progress::-moz-range-thumb {
+  #custom_progressbar_audio::-moz-range-thumb {
     width: 12px; /* Set a specific slider handle width */
     height: 12px; /* Slider handle height */
     border-radius: 50%;
-    background: red; /* Green background */
+    background: var(--lightred);
     cursor: pointer; /* Cursor on hover */
   }
 
-
-
-
-
-  #volume_range_slider {
+#volume_range_slider {
     -webkit-appearance: none;
     width: 100px;
-    height: 4px;
+    margin-left: 25px;
+    height: 3px;
     border-radius: 5px;
-    background: linear-gradient(90deg, rgba(255,0,0) 30%, rgba(176,177,174) 30%);
+    background: linear-gradient(90deg, rgba(255,0,0) 30%, rgba(222,222,222) 30%);
     outline: none;
     -webkit-transition: .2s;
     transition: opacity .2s;
@@ -91,7 +70,7 @@
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: red;
+    background: var(--lightred);
     cursor: pointer;
   }
 
@@ -99,76 +78,47 @@
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: red;
+    background: var(--lightred);
     cursor: pointer;
   }
-
-
-.timing_content {
-    color:white;
-}
 
 /* All containers */
 #input_container {
     margin-top: 20px;
     margin-left: 10px;
     color: var(--red);
-    display: inline-block;
     border-radius: 8px;
 }
 
-#intro_container {
-    display: none;
-    width: 100%;
-
-}
-
-#start_wrapper {
-    display:none;
-    text-align: center;
+#steps_wrapper {
     font-weight: 650;
-}
-
-#recover_wrapper {
-    display:none;
-    font-weight: 550;
-}
-
-#select_track_form {
-    margin-bottom: 14px;
 }
 
 #big_wrapper {
     max-width: 100%;
     display:none;
     margin-top: 10px;
-    text-align: center;
     padding: 5px;
-
 }
 
-#control_wrapper {
-    width: 100%;
-}
-
-
-.track_play_button {
-    background: transparent;
-    border: none;
-    outline: none;
-    text-shadow: 0px 0px 3px white;
+#play_icon_container {
+    color: var(--lightred);
+    padding:4px;
     width: 12px;
     height: 12px;
+    margin-left: -30px;
+    margin-top: -6px;
+
 }
 
-.testcontainer {
+.container_for_progressbar {
     margin-top: 10px;
+    padding-right: 3px;
 }
 
 
 #timing_container {
-    margin-top: 6px;
-    height: 20px;
+    padding: 4px;
 }
 
 #track_player_volumecontrol {
@@ -177,24 +127,40 @@
     margin-top: 2px;
 }
 
+#popup_instructions {
+    left: 50%;
+    height: 80%;
+    overflow-x: hidden;
+    margin-top:50px;
+    font-family: Helvetica, sans-serif;
+
+}
 
 @media screen and (min-width : 901px) {
-    #test-progress {
+    #custom_progressbar_audio {
         width: 80%;
     }
     #track_play_button {
-        /*margin-top: -7px;*/
         margin-top:0px;
+    }
+    #popup_instructions {
+        width: 700px;
+        margin-left: -350px; /* half of you width */
     }
 }
 
 @media screen and (max-width : 900px) {
-    #test-progress {
+    #custom_progressbar_audio {
         width: 65%;
     }
 
     #track_play_button {
         margin-top: -6px;
+    }
+
+    #popup_instructions {
+        width: 700px;
+        margin-left: -350px; /* half of you width */
     }
 }
 
@@ -202,6 +168,10 @@
 
     #track_play_button {
         margin-top: 0px;
+    }
+    #popup_instructions {
+        width: 400px;
+        margin-left: -200px; /* half of you width */
     }
 }
 
@@ -220,7 +190,6 @@
 .inputfile + label {
     font-size: 1.10em;
     font-weight: 500;
-    color: white;
     background-color: var(--red);
     padding: 4px;
     padding-left: 40px;
@@ -234,69 +203,194 @@
     background-color: var(--red);
 }
 
-
-.inputfile + label {
-	cursor: pointer;
-}
-
 #volume_btn {
-    margin-top: 1.5px;
-    padding-left: 5px;
-    position: absolute;
-}
-
-.label_btn {
-    font-size: 1.00em;
-    font-weight: 700;
-    color: white;
-    background-color: #DF474B;
-    padding: 4px;
-    padding-left: 15px;
-    padding-right: 15px;
-    box-shadow: 0px 0px 3px 0px #DF474B;
-    border-radius: 2px;
-}
-
-#step2 {
-    display: none;
-}
-
-#step3 {
-    display: none;
-}
-
-.start_text {
-    font-size: 11px;
-}
-
-#recover_menu {
-    display: none;
-    padding-bottom: 5px;
+    margin-top: 2px;
+    padding-left: 2px;
+    color: var(--lightred);
+    font-size:19px;
+    text-shadow:0.4px 0px 0px #4B1818;
 }
 
 .custom_button_style {
     font-size: 11px;
     font-weight: 400;
-    color: white;
     background-color: var(--red);
-    padding: 4px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 3px;
+    padding-left: 14px;
+    padding-right: 14px;
     margin-right: 15px;
     outline: none;
     font-weight: 650;
     text-shadow: 1px 1px black;
-    border-radius: 12px;
+    border-radius: 2px;
 }
 
 .text_instructions {
-    padding-bottom: 12px;
     text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
-
+    font-size: 11px;
 }
 
-#save_track_form {
-    padding-top: 7px;
-    color: black;
-    font-weight: normal;
+.gg-play-pause-r {
+    box-sizing: border-box;
+    position: relative;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+}
+.gg-play-pause-r::before {
+    content: "";
+    box-sizing: border-box;
+    width: 12px;
+    height: 14px;
+    left: 6px;
+    top: 6px;
+    border-left: 4px solid;
+    border-right: 4px solid
+}
+
+.gg-play-button-r {
+    box-sizing: border-box;
+    position: relative;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+}
+.gg-play-button-r::before {
+    content: "";
+    box-sizing: border-box;
+    width: 0;
+    height: 10px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 13px solid;
+    top: 4px;
+    left: 7px
+}
+
+
+.gg-menu {
+    transform: scale(var(--ggs, 1))
+    padding: 5px;
+}
+.gg-menu,
+.gg-menu::after,
+.gg-menu::before {
+    box-sizing: border-box;
+    position: relative;
+    width: 15px;
+    height: 2px;
+    border-radius: 3px;
+    background: var(--grey);
+}
+.gg-menu::after,
+.gg-menu::before {
+    content: "";
+    top: -4px
+}
+.gg-menu::after {
+    top: 4px;
+}
+
+#menu_button_container {
+    width: 28px;
+    height: 20px;
+}
+
+#help_menu_button {
+    margin-top: 9px;
+    margin-left: 5px;
+}
+
+.review_titles, .explained {
+    background-color: #2b2c2b;
+    padding: 30px;
+    font-family: 'Dosis', sans-serif;
+    font-size: 15px;
+    text-shadow: 2px 2px 2px black;
+}
+
+.tab-text{
+    margin-left: 15px;
+}
+
+.tab-text-start{
+    margin-left: 10px;
+}
+
+.explain_options {
+    text-shadow: 2px 2px 2px black;
+    background: #2b2c2b;
+    background: linear-gradient(to right, #CF2500 0%, #CF2500 50%, #2b2c2b 50%, #2b2c2b 100%);
+}
+
+.all_options {
+    font-size: 13px;
+    padding: 5px;
+}
+
+#left_options, #right_options {
+    width: 48%;
+}
+
+#close_popup_container {
+    width: 30%;
+    font-size: 15px;
+    margin-left: 35%;
+    background-color: #B90600;
+    border: 1px solid #650300;
+    padding: 2px;
+}
+
+.title_option {
+    padding-left: 15px;
+}
+
+#table_with_titles {
+    margin: 0 auto;
+}
+
+.tab-text, .tab-text-start {
+    display: inline;
+}
+
+.delete_title_row {
+    padding-top: 8px;
+}
+
+#input_container, #play_icon_container, #timing_container, #menu_button_container, .all_options, #left_options, #right_options, .options_cols {
+    display: inline-block;
+}
+
+#play_icon_container, .track_play_button, #volume_btn, .gg-play-pause-r::before, .gg-play-button-r::before, .gg-menu::after, .gg-menu::before, #menu_button_container  {
+    position: absolute;
+}
+
+.review_titles, .explained, #timing_container, #audio_track_sidebar, .inputfile + label, #table_with_titles, .explain_options, .custom_button_style {
+    color: white;
+}
+
+.options_cols, .all_options, .inputfile + label, .delete_this_title, #menu_button_container:hover, #play_icon_container:hover {
+    cursor: pointer;
+}
+
+.gg-play-pause-r::before, .gg-play-button-r::before, .gg-menu, .gg-menu::after, .gg-menu::before, .gg-play-button-r, .gg-play-pause-r {
+    display: block;
+}
+
+#recover_menu, #step2, #step3, #recover_wrapper, #steps_wrapper, #intro_container, #slider_container, #audio_track_player {
+    display: none;
+}
+
+#close_popup_container, .explain_options, .custom_button_style, #big_wrapper, #steps_wrapper, #audio_track_sidebar {
+     text-align: center;
+}
+
+#control_wrapper, #audio_track_sidebar, #intro_container {
+    width: 100%;
+}
+
+.save_timestamp_button {
+    padding-top: 10px;
 }
