@@ -1,9 +1,10 @@
 // Function to add the two toolbars to the page, the help menu is initially set to hidden from view
-function add_toolbars() {
-    var toolbar = document.createElement('div');
+
+var toolbar = document.createElement('div');
 toolbar.setAttribute("id", "audio_track_sidebar");
 toolbar.innerHTML = '\
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">\
+  <link rel="icon" type="image/x-icon" href="../images/popcorn.png"> \
   <script href="https://kit.fontawesome.com/b571da1c14.js" crossorigin="anonymous"></script>\
   <link href="https://css.gg/volume.css" rel="stylesheet">\
   <meta name="viewport" content="width=device-width, initial-scale=1.0">\
@@ -39,11 +40,16 @@ toolbar.innerHTML = '\
       Now start the movie, pause at the point where they told you to start the audio track and press save.\
       <div class="save_timestamp_button"><label id="save_video" class="custom_button_style"> Save </label></div>\
     </div>\
+    <div class="text_instructions" id="step2_error">\
+    No video found \
+   </div>\
     <div class="text_instructions" id="step3">\
       The tracks are linked!\
       <div class="save_timestamp_button"><label id="close_popup_container2" class="custom_button_style"> Close </label></div>\
     </div>\
   </div>\
+  <script src="sync.js"></script> \
+  <script src="functions.js"></script> \
   \
 ';
 
@@ -61,14 +67,6 @@ instructions.setAttribute("id", "popup_instructions");
         <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">\
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> \
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400&display=swap" rel="stylesheet">\
-        <div id="options_menu" class="explain_options">\
-            <div id="left_options" class="options_cols">\
-                <div class="all_options left_column" >Help</div>\
-            </div>\
-            <div id="right_options" class="options_cols">\
-                <div class="all_options right_column" >Saved Tracks</div>\
-            </div>\
-        </div>\
         <div id="explained" class="explained"> \
             <p> Save the timestamps where the tracks are synced up. These points are always explained at the start of the commentary track. \
             You are going to do this in 2 steps: </p> \
@@ -84,12 +82,6 @@ instructions.setAttribute("id", "popup_instructions");
             track will follow. <br><br> You are not able to control the audio bar anymore (because not every website \
             supports their progress bar value to be changed externally) so note that you can only use the movie progress bar now.</p> \
             \
-            <p> The timestamps are now saved with the title of the audio file. This means that the next time you \
-            upload this file, you can just continue playing with the tracks already in sync. <br><br> \
-            This also means that if you somehow messed up setting up the sync the first time, you can change the title \
-            of the audio file so that it will not be recognized and you will be able to set it up again. Alternatively, you can manually \
-            delete tracks you saved on this particular  website in the next panel.</p> \
-            <div id="close_popup_container">Got it!</div>\
         </div> \
         <div id="review_titles" class="review_titles"> \
             <div id="hidden_view_list"></div>\
@@ -102,5 +94,3 @@ instructions.style.top = '0px';
 instructions.style.zIndex = '99999';
 instructions.style.display = 'none';
 document.body.appendChild(instructions);
-
-}

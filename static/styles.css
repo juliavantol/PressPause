@@ -347,10 +347,6 @@
     padding-left: 15px;
 }
 
-#table_with_titles {
-    margin: 0 auto;
-}
-
 .tab-text, .tab-text-start {
     display: inline;
 }
@@ -379,7 +375,7 @@
     display: block;
 }
 
-#recover_menu, #step2, #step3, #recover_wrapper, #steps_wrapper, #intro_container, #slider_container, #audio_track_player {
+#recover_menu, #step2, #step2_error, #step3, #recover_wrapper, #steps_wrapper, #intro_container, #slider_container, #audio_track_player {
     display: none;
 }
 
