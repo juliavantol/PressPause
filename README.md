@@ -1,4 +1,4 @@
-# DaSynci
+# PressPause
 #### Brief Description:
 A Chrome extension using Javascript that helps sync up a commentary track with a movie.
 
